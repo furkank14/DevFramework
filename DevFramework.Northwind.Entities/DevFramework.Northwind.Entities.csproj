@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06AFC855-667D-4C6B-B4B3-D781797252DC}</ProjectGuid>
+    <ProjectGuid>{9957F498-0F65-4ECA-899C-4AC0458BD372}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DevFramework.Core</RootNamespace>
-    <AssemblyName>DevFramework.Core</AssemblyName>
+    <RootNamespace>DevFramework.Northwind.Entities</RootNamespace>
+    <AssemblyName>DevFramework.Northwind.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
