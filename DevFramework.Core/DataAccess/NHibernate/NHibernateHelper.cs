@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 
-namespace DevFramework.Core.DataAccess.NHiberNet
+namespace DevFramework.Core.DataAccess.NHibernate
 {
     public abstract class NHibernateHelper:IDisposable
     {
