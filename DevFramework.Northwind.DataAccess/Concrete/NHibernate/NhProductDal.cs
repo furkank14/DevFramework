@@ -9,7 +9,7 @@ using DevFramework.Northwind.Entities.Concrete;
 
 namespace DevFramework.Northwind.DataAccess.Concrete.NHibernate
 {
-    class NhProductDal:NHEntityRepositoryBase<Product>,IProductDal
+    public class NhProductDal:NHEntityRepositoryBase<Product>,IProductDal
     {
         public NhProductDal(NHibernateHelper nHibernateHelper) : base(nHibernateHelper)
         {
