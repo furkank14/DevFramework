@@ -12,7 +12,7 @@ using DevFramework.Core.Aspects.PostSharp;
 
 namespace DevFramework.Northwind.Business.Concrete.Managers
 {
-    class ProductManager:IProductService
+    public class ProductManager:IProductService
     {
         private IProductDal _productDal;
 
