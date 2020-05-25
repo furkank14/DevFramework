@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DevFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using FluentValidation;
 using PostSharp.Aspects;
 
-namespace DevFramework.Core.Aspects.PostSharp
+namespace DevFramework.Core.Aspects.PostSharp.ValidationAspects
 {   
     [Serializable]
     public class FluentValidationAspect : OnMethodBoundaryAspect

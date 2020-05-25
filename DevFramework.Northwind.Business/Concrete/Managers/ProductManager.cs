@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using DevFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using DevFramework.Northwind.Business.Abstract;
 using DevFramework.Northwind.Business.ValidationRules.FluentValidation;
 using DevFramework.Northwind.DataAccess.Abstract;
 using DevFramework.Northwind.Entities.Concrete;
 using DevFramework.Core.Aspects.PostSharp;
+using DevFramework.Core.Aspects.PostSharp.TransactionAspects;
+using DevFramework.Core.Aspects.PostSharp.ValidationAspects;
 
 namespace DevFramework.Northwind.Business.Concrete.Managers
 {
-    public class ProductManager:IProductService
+    public class ProductManager : IProductService
     {
         private IProductDal _productDal;
 
@@ -46,6 +49,15 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
         public Product Delete(Product product)
         {
             throw new NotImplementedException();
+        }
+
+        [TransactionScopeAspect]
+        public void TransactionalOperation(Product product1, Product product2)
+        {
+
+            _productDal.Add(product1);
+            _productDal.Update(product2);
+
         }
     }
 }
