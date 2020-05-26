@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using DevFramework.Core.Aspects.PostSharp.ExceptionAspects;
 using DevFramework.Core.Aspects.PostSharp.LogAspets;
+using DevFramework.Core.Aspects.PostSharp.PerformanceAspects;
 using DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 // General Information about an assembly is controlled through the following
@@ -21,6 +22,8 @@ using DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 [assembly: ExceptionLogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "DevFramework.Northwind.Business.Concrete.Managers.*")]
 [assembly: ExceptionLogAspect(typeof(FileLogger), AttributeTargetTypes = "DevFramework.Northwind.Business.Concrete.Managers.*")]
+
+[assembly: PerformanceCounterAspect(0.1,AttributeTargetTypes = "DevFramework.Northwind.Business.Concrete.Managers.*")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
