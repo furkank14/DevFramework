@@ -30,11 +30,31 @@ namespace DevFramework.Northwind.MvcWebUI.Controllers
         {
             _productService.Add(new Product
             {
-                ProductName = "Bos1",
+                ProductName = "Pc1",
                 CategoryId = 5,
-                UnitPrice = 10
+                UnitPrice = 10,
+                QuantityPerUnit = "dedede"
             });
             return "Added";
+        }
+
+        public string AddUpdate()
+        {
+            _productService.TransactionalOperation(new Product
+            {
+                ProductName = "Pc2",
+                CategoryId = 5,
+                UnitPrice = 10,
+                QuantityPerUnit = "dedede"
+            }, new Product
+            {
+                ProductName = "Pc4",
+                CategoryId = 5,
+                UnitPrice = 1,
+                QuantityPerUnit = "dedede",
+                ProductId = 81
+            });
+            return "update";
         }
     }
 }
