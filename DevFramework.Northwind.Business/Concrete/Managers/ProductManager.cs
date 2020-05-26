@@ -11,9 +11,11 @@ using DevFramework.Northwind.DataAccess.Abstract;
 using DevFramework.Northwind.Entities.Concrete;
 using DevFramework.Core.Aspects.PostSharp;
 using DevFramework.Core.Aspects.PostSharp.CacheAspects;
+using DevFramework.Core.Aspects.PostSharp.LogAspets;
 using DevFramework.Core.Aspects.PostSharp.TransactionAspects;
 using DevFramework.Core.Aspects.PostSharp.ValidationAspects;
 using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
+using DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace DevFramework.Northwind.Business.Concrete.Managers
 {
@@ -27,6 +29,8 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager),60)]
+        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(FileLogger))]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
