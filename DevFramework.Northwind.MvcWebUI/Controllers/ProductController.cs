@@ -48,9 +48,9 @@ namespace DevFramework.Northwind.MvcWebUI.Controllers
                 QuantityPerUnit = "dedede"
             }, new Product
             {
-                ProductName = "Pc4",
+                ProductName = "Pc",
                 CategoryId = 5,
-                UnitPrice = 1,
+                UnitPrice = -1,
                 QuantityPerUnit = "dedede",
                 ProductId = 81
             });
