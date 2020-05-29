@@ -15,6 +15,7 @@ namespace DevFramework.Northwind.Business.DependencyResolvers.Ninject
         public override void Load()
         {
             Bind<IValidator<Product>>().To<ProductValidator>().InSingletonScope();
+            Bind<IValidator<User>>().To<UserValidator>().InSingletonScope();
         }
     }
 }
