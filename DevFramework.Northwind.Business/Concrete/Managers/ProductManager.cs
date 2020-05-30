@@ -36,7 +36,7 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager),60)]
-        [SecuredOperation(Roles="Admin,Editor")]
+        //[SecuredOperation(Roles="Admin,Editor")]
         public List<Product> GetAll()
         {
             //Core version
