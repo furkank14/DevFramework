@@ -18,6 +18,8 @@ using DevFramework.Core.Aspects.PostSharp.ValidationAspects;
 using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
 using DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using PostSharp.Aspects.Dependencies;
+using AutoMapper;
+using DevFramework.Core.Utilities.Mappings;
 
 namespace DevFramework.Northwind.Business.Concrete.Managers
 {
@@ -25,17 +27,23 @@ namespace DevFramework.Northwind.Business.Concrete.Managers
     public class ProductManager : IProductService
     {
         private IProductDal _productDal;
+        private readonly IMapper _mapper;
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(IProductDal productDal,IMapper mapper)
         {
             _productDal = productDal;
+            _mapper = mapper;
         }
 
         [CacheAspect(typeof(MemoryCacheManager),60)]
         [SecuredOperation(Roles="Admin,Editor")]
         public List<Product> GetAll()
         {
-            return _productDal.GetList();
+            //Core version
+            //var products = AutoMapperHelper.MapToSameTypeList<Product>(_productDal.GetList());
+            //Business Module version
+            var products = _mapper.Map<List<Product>>(_productDal.GetList());
+            return products;
         }
 
         public Product GetById(int id)
